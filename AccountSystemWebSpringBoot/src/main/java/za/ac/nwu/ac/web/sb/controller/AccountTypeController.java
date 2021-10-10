@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.nwu.ac.domain.persistence.AccountType;
+import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.web.sb.exception.GeneralResponse;
 import java.util.List;
+import java.util.Objects;
+import java.util.*;
 
 @RestController
 @RequestMapping("account-type")

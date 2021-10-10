@@ -1,16 +1,16 @@
 package za.ac.nwu.ac.domain.persistence;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
+import javax.persistence.Entity;
 
-//@entity
+@Entity
 @Table(name = "ACCOUNT_TYPE", schema = "")
 public class AccountType implements Serializable{
 
+    private static final long serialVersionID = -1420294317019175746L;
     @Id
     @SequenceGenerator(name = "", sequenceName = "", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "")

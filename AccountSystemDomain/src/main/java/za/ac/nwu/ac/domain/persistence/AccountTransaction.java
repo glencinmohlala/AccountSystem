@@ -4,12 +4,15 @@ package za.ac.nwu.ac.domain.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "", schema = "")
+@Table(name = "AccountTransaction")
 public class AccountTransaction<targetEntity> implements Serializable {
     @Id
-    @SequenceGenerator(name = "", sequenceName = "", allocationSize = 1)
+    @SequenceGenerator(name = "AccountTransaction", sequenceName = "", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "")
 
 
@@ -100,5 +103,8 @@ public class AccountTransaction<targetEntity> implements Serializable {
                 ", amount=" + amount +
                 ", transactionDate=" + transactionDate +
                 '}';
+    }
+
+    private class set<T> {
     }
 }

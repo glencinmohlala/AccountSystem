@@ -29,6 +29,4 @@ public class CreateAccountTypeFlowImpl<AccountTypeDto> implements CreateAccountT
         return accountTypeTranslator.create(accountType);
     }
 
-    private class AccountTypeTranslator {
-    }
 }

@@ -1,13 +1,14 @@
 package za.ac.nwu.ac.domain.dto;
 
-//import io.swagger.annotations.ApiModel;
-//import io.swagger.annotations.ApiModelProperty;
-//import org.hibernate.annotations.Type;
+import io.swagger.annotations.ApiModel;
 import za.ac.nwu.ac.domain.persistence.AccountType;
-
+import javax.persistence.Query;
+import javax.persistence.Entity;
+import javax.persistence.QueryHint;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Entity
 @ApiModel(value = "AccountType",
         description = "A DTO that represents the AccountType"
 )
@@ -57,4 +58,30 @@ public class AccountTypeDto implements Serializable {
     public void setMnemonic(String mnemonic) {
         this.mnemonic = mnemonic;
     }
+
+    @Query(value = "SELECT " +
+            "        ACCOUNT_TYPE_ID, " +
+            "        ACCOUNT_TYPE_NAME," +
+            "        CREATION_DATE," +
+            "        MNEMONIC" +
+            "     FROM " +
+            "        SCHEMA.DATABASE" +
+            "     WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
+    AccountType getAccountTypeByMnemonicNativeQuery(String mnemonic);
+
+    @Query(value = "SELECT " +
+            "         at " +
+            "     FROM " +
+            "       AccountType at" +
+            "     WHERE at.mnemonic = :mnemonic")
+    AccountType getAccountTypeByMnemonicNativeQuery(String mnemonic);
+
+    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( " +
+            "       at.mnemonic, " +
+            "       at.accountTypeName, " +
+            "       at.creationDate )" +
+            "   FROM " +
+            "       AccountType at" +
+            "   WHERE at.mnemonic = :mnemonic")
+    AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic);
 }
