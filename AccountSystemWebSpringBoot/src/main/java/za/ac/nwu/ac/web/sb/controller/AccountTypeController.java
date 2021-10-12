@@ -51,6 +51,7 @@ public class AccountTypeController {
                     required = true)
             @RequestBody AccountTypeDto accountType) {
         AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
+        Object successful;
         GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(successful: true, accountTypeResponse);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
@@ -72,6 +73,7 @@ public class AccountTypeController {
                     required = true)
             @PathVariable("mnemonic") final String mnemonic) {
         AccountTypeDto accountType = fetchAccountTypeFlow.getAccountTypeByMnemonic(mnemonic);
+        Object successful;
         GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(successful: true, accountType);
        return new ResponseEntity<>(response, HttpStatus.OK);
     }
