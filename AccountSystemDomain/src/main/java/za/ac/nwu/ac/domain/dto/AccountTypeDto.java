@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModel;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import javax.persistence.Query;
 import javax.persistence.Entity;
-import javax.persistence.QueryHint;
 import java.io.Serializable;
 import java.time.LocalDate;
 

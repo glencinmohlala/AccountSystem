@@ -8,6 +8,7 @@ import za.ac.nwu.ac.domain.persistence.AccountType;
 
 @Repository
 public interface AccountTypeRepository extends JpaRepository<AccountType, Long>{
+
     @Query(value = "SELECT" +
             "       ACCOUNT_TYPE_ID," +
             "       ACCOUNT_TYPE_NAME," +

@@ -1,4 +1,4 @@
 package za.ac.nwu.ac.web.sb.exception;
 
-public class GeneralResponse {
+public class GeneralResponse<A> {
 }
